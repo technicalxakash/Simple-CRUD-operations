@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Employees</title>
+</head>
+<body>
+    <h1>Employee List</h1>
+    <a href="{% url 'employee_create' %}">Add Employee</a>
+    <ul>
+        {% for emp in employees %}
+            <li>
+                {{ emp.name }} - {{ emp.email }} - {{ emp.phone }}
+                <a href="{% url 'employee_update' emp.id %}">Edit</a>
+                <a href="{% url 'employee_delete' emp.id %}">Delete</a>
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
